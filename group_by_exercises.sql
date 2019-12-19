@@ -34,16 +34,42 @@ WHERE gender = 'F'
 ORDER BY hire_date DESC
 LIMIT 10;
 # what are the top three most common job titles?
-SELECT title, count(*)
+SELECT title
 FROM titles
 GROUP BY title
 ORDER BY count(*) DESC
 LIMIT 3;
 # what is the most common 'from date' for job titles? for staff only?
+SELECT from_date
+FROM titles
+WHERE title = 'staff'
+GROUP BY from_date
+ORDER BY count(*) DESC
+LIMIT 1;
 # what is the highest employee number for an engineer?
+SELECT MAX(emp_no)
+FROM titles
+WHERE title = 'engineer';
 # what is the most common birthday?
+SELECT birth_date
+FROM employees
+GROUP BY birth_date
+ORDER BY count(birth_date) DESC
+LIMIT 1;
 # what is the most common female birthday? male?
+SELECT birth_date
+FROM employees
+WHERE gender = 'F'
+GROUP BY birth_date
+ORDER BY count(birth_date) DESC
+LIMIT 1;
 # what is the most common hire date for female and male employees?
+SELECT hire_date
+FROM employees
+WHERE gender = 'M'
+GROUP BY hire_date
+ORDER BY count(hire_date) DESC
+LIMIT 1;
 # what is the longest last name of someone born on March 8, 1952?
 # what is the lowest employee number for the first senior engineers in the company?
 
