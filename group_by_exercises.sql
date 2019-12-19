@@ -71,5 +71,14 @@ GROUP BY hire_date
 ORDER BY count(hire_date) DESC
 LIMIT 1;
 # what is the longest last name of someone born on March 8, 1952?
+SELECT last_name
+FROM employees
+WHERE birth_date = '1952-03-08'
+GROUP BY last_name
+ORDER BY MAX(LENGTH(last_name)) DESC
+LIMIT 1;
 # what is the lowest employee number for the first senior engineers in the company?
+SELECT MIN(emp_no)
+FROM titles
+WHERE title = 'Senior Engineer';
 
