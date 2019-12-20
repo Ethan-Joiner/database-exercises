@@ -32,3 +32,16 @@ WHERE dept_no IN (
         WHERE gender = 'F' AND to_date > NOW()
         )
     );
+
+SELECT CONCAT(first_name, ' ', last_name) FROM employees
+WHERE emp_no = (
+    SELECT emp_no
+    FROM salaries
+    ORDER BY salary DESC
+    LIMIT 1
+    );
+
+SELECT * FROM salaries
+ORDER BY salary DESC;
+
+SELECT * FROM employees WHERE emp_no = '43624';
