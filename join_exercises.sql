@@ -27,8 +27,24 @@ ON de.dept_no = d.dept_no
 WHERE de.to_date = '9999-01-01' AND dept_name = 'Customer Service'
 GROUP BY t.title;
 
+SELECT d.dept_name, CONCAT(e.first_name, ' ', e.last_name), s.salary
+FROM departments AS d
+JOIN dept_manager AS dm
+ON d.dept_no = dm.dept_no
+JOIN employees AS e
+ON dm.emp_no = e.emp_no
+JOIN salaries AS s
+ON e.emp_no = s.emp_no
+WHERE dm.to_date = '9999-01-01' AND s.to_date = '9999-01-01'
+GROUP BY d.dept_name, CONCAT(e.first_name, ' ', e.last_name), s.salary
+ORDER BY dept_name;
+
+
 show tables;
 select * from departments;
+select * from salaries
+LIMIT 1;
+
 
 
 
