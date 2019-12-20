@@ -72,8 +72,14 @@ WHERE emp_no = (
 SELECT * FROM salaries ORDER BY salary DESC LIMIT 1;
 SELECT * FROM employees WHERE emp_no = '43624';
 
-================================= RELATIONSHIP BONUSES
+# ================================= RELATIONSHIP BONUSES
 -- what is the most common birthday in the company? least common?
+SELECT birth_date, count(*) FROM employees
+GROUP BY birth_date
+ORDER BY count(*) DESC
+LIMIT 1;
+
+
 -- what is the average salary of managers by department?
 -- how many employees currently work in each department?
 -- what is the average salary for each department?
@@ -87,3 +93,15 @@ SELECT * FROM employees WHERE emp_no = '43624';
 -- EXTRA HARD BONUS --
 -- what employees were hired during the year Nevermind was released and after?
 # (you will need to use the codeup_test_db and employees db)
+
+SELECT * FROM employees
+WHERE EXTRACT(YEAR FROM hire_date) >= (
+    SELECT release_date
+    FROM codeup_test_db.albums
+    WHERE name = 'Metallica'
+    );
+
+SHOW CREATE table employees;
+
+
+SELECT CAST(1991 AS DATE);
