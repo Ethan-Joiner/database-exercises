@@ -15,13 +15,7 @@ SELECT CONCAT((
     ORDER BY emp_no
     LIMIT 1 OFFSET 1));
 
-SELECT MAX(salary) FROM salaries GROUP BY emp_no ORDER BY emp_no LIMIT 2;
-SELECT MAX(salary) FROM salaries WHERE emp_no = '100002';
-SELECT MAX(salary)
-FROM salaries
-GROUP BY emp_no
-ORDER BY emp_no
-LIMIT 1 OFFSET 1;
+
 -- get current manager name of Sales department (use subqueries)
 SELECT CONCAT(first_name, ' ', last_name) FROM employees
 WHERE emp_no = (
@@ -52,4 +46,14 @@ WHERE emp_no IN (
 
           );
 -- get all first and last names of current Sales department employees
+SELECT first_name,  last_name FROM employees
+WHERE emp_no IN (
+    SELECT emp_no
+    FROM dept_emp
+    WHERE dept_no IN (
+        SELECT dept_no
+        FROM departments
+        WHERE dept_name = 'Sales'
+        ) AND to_date > NOW()
+    );
 -- get the name of the employee with the highest salary
