@@ -24,7 +24,9 @@ JOIN dept_emp as de
 ON t.emp_no = de.emp_no
 JOIN departments as d
 ON de.dept_no = d.dept_no
-WHERE de.to_date = '9999-01-01' AND dept_name = 'Customer Service' AND t.to_date = '9999-01-01'
+WHERE de.to_date = '9999-01-01'
+AND dept_name = 'Customer Service'
+AND t.to_date = '9999-01-01'
 GROUP BY t.title;
 
 SELECT d.dept_name, CONCAT(e.first_name, ' ', e.last_name), s.salary
