@@ -41,7 +41,3 @@ WHERE emp_no = (
     LIMIT 1
     );
 
-SELECT * FROM salaries
-ORDER BY salary DESC;
-
-SELECT * FROM employees WHERE emp_no = '43624';
