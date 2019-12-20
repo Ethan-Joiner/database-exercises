@@ -36,7 +36,6 @@ ON dm.emp_no = e.emp_no
 JOIN salaries AS s
 ON e.emp_no = s.emp_no
 WHERE dm.to_date = '9999-01-01' AND s.to_date = '9999-01-01'
-GROUP BY d.dept_name, CONCAT(e.first_name, ' ', e.last_name), s.salary
 ORDER BY dept_name;
 
 SELECT CONCAT(e.first_name, ' ', e.last_name), d.dept_name, CONCAT(em.first_name, ' ', em.last_name)
@@ -50,7 +49,6 @@ ON d.dept_no = dm.dept_no
 JOIN employees AS em
 ON em.emp_no = dm.emp_no
 WHERE dm.to_date = '9999-01-01' AND de.to_date = '9999-01-01'
-# GROUP BY CONCAT(e.first_name, ' ', e.last_name), d.dept_name, CONCAT(em.first_name, ' ', em.last_name)
 ORDER BY CONCAT(e.first_name, ' ', e.last_name);
 
 
