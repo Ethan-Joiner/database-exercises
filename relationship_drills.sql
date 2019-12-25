@@ -88,9 +88,20 @@ WHERE emp_no IN (
     WHERE dept_no = (
         SELECT dept_no
         FROM departments
-        WHERE dept_name = 'Customer Service'
+        WHERE dept_name = 'Development'
         )
     );
+
+SELECT AVG(salary) FROM salaries
+WHERE emp_no IN (
+    SELECT emp_no
+    FROM dept_manager
+    WHERE dept_no = (
+        SELECT dept_no
+        FROM departments
+        WHERE dept_name = 'Customer Service'
+    )
+);
 
 -- how many employees currently work in each department?
 
