@@ -79,13 +79,17 @@ GROUP BY birth_date
 ORDER BY count(*) DESC
 LIMIT 1;
 
-SELECT * FROM salaries;
+SELECT * FROM departments;
 -- what is the average salary of managers by department?
 SELECT AVG(salary) FROM salaries
 WHERE emp_no IN (
     SELECT emp_no
     FROM dept_manager
-
+    WHERE dept_no = (
+        SELECT dept_no
+        FROM departments
+        WHERE dept_name = 'Customer Service'
+        )
     );
 
 -- how many employees currently work in each department?
