@@ -104,6 +104,16 @@ WHERE emp_no IN (
 );
 
 -- how many employees currently work in each department?
+SELECT count(*) FROM employees
+WHERE emp_no IN (
+    SELECT emp_no
+    FROM dept_emp
+    WHERE dept_no =(
+        SELECT dept_no
+        FROM departments
+        WHERE dept_name = 'Customer Service'
+        )
+    );
 
 # SELECT employees, count() FROM dept_emp
 # GROUP BY count();
