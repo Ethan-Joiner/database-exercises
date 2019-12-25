@@ -79,9 +79,19 @@ GROUP BY birth_date
 ORDER BY count(*) DESC
 LIMIT 1;
 
-
+SELECT * FROM salaries;
 -- what is the average salary of managers by department?
+SELECT AVG(salary) FROM salaries
+WHERE emp_no IN (
+    SELECT emp_no
+    FROM dept_manager
+
+    );
+
 -- how many employees currently work in each department?
+
+# SELECT employees, count() FROM dept_emp
+# GROUP BY count();
 -- what is the average salary for each department?
 -- what was the average salary in the 80s? By department?
 -- how many times (on average) do employees switch titles?
