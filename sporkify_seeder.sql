@@ -1,4 +1,5 @@
 USE sporkify_db;
+TRUNCATE sporkify;
 insert into SPORKIFY (artist, album, song, genre, duration, release_date) values ('Konopelski, Heaney and Dare', 'Span', 'Cogilith', 'Comedy|Musical|Romance', 15041, '2008-04-24');
 insert into SPORKIFY (artist, album, song, genre, duration, release_date) values ('Feeney, Mosciski and Ankunding', 'Biodex', 'Ntag', 'Drama|Romance|Thriller', 2259, '2004-02-20');
 insert into SPORKIFY (artist, album, song, genre, duration, release_date) values ('Osinski, Bauch and Botsford', 'Mat Lam Tam', 'Centidel', 'Drama|War', 370, '1987-05-10');
