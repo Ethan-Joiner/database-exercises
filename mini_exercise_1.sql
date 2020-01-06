@@ -12,3 +12,16 @@ For each scenerio, select the best relationship type and why:
   Many to many. Each business can have multiple addresses and each address can host multiple businesses.
   - in a dog walking app: pet_records and pet_owners
   One to many. Each owner can have multiple pets but not really vice versa unless they are weird and need two accounts. Maybe many to many.
+
+  ================================= DATABASE DESIGN MINI EXERCISE 2
+-- Let's make a simple DB design for a Spotify-like music app. All relationships will be included.
+What entities/tables would be in a Spotify-like music app?
+Artists, Songs, Genres, Release-Dates, Users, Playlists, Albums
+Users connects to Playlists Many to Many.
+Artists Connects to Songs Many to Many.
+Artists Connects to Genres Many to Many.
+Song connects to Genre Many to Many.
+Albums Connects to Artists Many to Many
+Albums Connects to Release Date One to Many
+Albums Connects to Songs Many to Many
+Albums Connects to Genres Many to Many
