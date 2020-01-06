@@ -11,3 +11,4 @@ CREATE TABLE IF NOT EXISTS sporkify(
                                      release_date DATE,
                                      PRIMARY KEY (id)
 );
+
